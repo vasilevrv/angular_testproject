@@ -1,0 +1,60 @@
+<div class="example-container">
+  <h2>{{ 'CUSTOMER.EDIT.TITLE'|translate }} {{ customer.firstName }} {{ customer.lastName }}</h2>
+  <div class="form-container">
+    <form [formGroup]="form" (submit)="submit()">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label translate="CUSTOMER.FIRST_NAME"></mat-label>
+        <input matInput formControlName="firstName" required>
+        <mat-error *ngIf="form.get('firstName').errors">
+          {{ form.get('firstName').errors|formControlError|translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label translate="CUSTOMER.LAST_NAME"></mat-label>
+        <input matInput formControlName="lastName" required>
+        <mat-error *ngIf="form.get('lastName').errors">
+          {{ form.get('lastName').errors|formControlError|translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label translate="CUSTOMER.BIRTH_DATE"></mat-label>
+        <input matInput formControlName="birthDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('birthDate').errors">
+          {{ form.get('birthDate').errors|formControlError|translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label translate="CUSTOMER.GENDER"></mat-label>
+        <mat-select formControlName="gender">
+          <mat-option *ngFor="let gender of [0, 1]" [value]="gender">{{ ('GENDER.' + gender)|translate }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('gender').errors">
+          {{ form.get('gender').errors|formControlError|translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label translate="CUSTOMER.EMAIL"></mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="form.get('email').errors">
+          {{ form.get('email').errors|formControlError|translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label translate="CUSTOMER.ADDRESS"></mat-label>
+        <input matInput formControlName="address">
+        <mat-error *ngIf="form.get('address').errors">
+          {{ form.get('address').errors|formControlError|translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" translate="CUSTOMER.EDIT.BUTTON"></button>
+    </form>
+  </div>
+</div>

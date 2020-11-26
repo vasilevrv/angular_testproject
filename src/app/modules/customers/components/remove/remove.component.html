@@ -1,0 +1,6 @@
+<div class="example-container">
+  <h2>{{ 'CUSTOMER.REMOVE.TITLE'|translate  }} {{ customer.firstName }} {{ customer.lastName }}</h2>
+  <p>{{ 'CUSTOMER.REMOVE.ALERT'|translate  }} "{{ customer.firstName }} {{ customer.lastName }}"?</p>
+  <button mat-raised-button color="primary" type="submit" (click)="remove()" translate="YES"></button>
+  <button mat-raised-button color="primary" type="submit" (click)="close()" translate="NO"></button>
+</div>

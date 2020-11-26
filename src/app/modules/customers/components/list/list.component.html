@@ -1,0 +1,57 @@
+<div class="customers">
+  <button mat-raised-button color="accent" class="add-button" (click)="create()" translate="ADD"></button>
+
+  <form class="example-form" [formGroup]="form" (submit)="submit()">
+    <mat-form-field class="form-field search-field" appearance="outline">
+      <mat-label translate="CUSTOMER.SEARCH"></mat-label>
+      <input type="text" matInput formControlName="value">
+      <mat-icon matSuffix (click)="submit()" class="search-button">search</mat-icon>
+    </mat-form-field>
+  </form>
+
+  <table mat-table [dataSource]="dataSource" (matSortChange)="shortChange($event)" matSort class="mat-elevation-z8" width="100%">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.ID"></th>
+      <td mat-cell *matCellDef="let element"> #{{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.FIRST_NAME"></th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.LAST_NAME"></th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.BIRTH_DATE"></th>
+      <td mat-cell *matCellDef="let element"> {{element.birthDate.split('T')[0]|date:'dd/MM/YY'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.GENDER"></th>
+      <td mat-cell *matCellDef="let element"> {{ ('GENDER.' + element.gender)|translate }} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.EMAIL"></th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.ADDRESS"></th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header translate="CUSTOMER.ACTIONS"></th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="edit(element)" mat-icon-button class="example-icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="remove(element)" mat-icon-button class="example-icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" (page)="onChange($event)" showFirstLastButtons></mat-paginator>
+</div>

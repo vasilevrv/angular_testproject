@@ -1,0 +1,42 @@
+{
+  "YES": "Yes",
+  "NO": "No",
+  "ADD": "Create new customer",
+  "VALIDATION": {
+    "ERROR": {
+      "email": "Invalid e-mail address",
+      "required": "Field is required",
+      "maxlength": "Maximum length exceeded",
+      "greaterThan": "Date greater than allowed",
+      "lessThan": "Date less than allowed"
+    }
+  },
+  "GENDER": {
+    "0": "Male",
+    "1": "Female"
+  },
+  "CUSTOMER": {
+    "TITLE": "Customer manager",
+    "ID": "No",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "BIRTH_DATE": "Birth Date",
+    "GENDER": "Gender",
+    "EMAIL": "E-Mail",
+    "ADDRESS": "Address",
+    "ACTIONS": "Actions",
+    "CREATE": {
+      "TITLE": "Create a new customer",
+      "BUTTON": "Create"
+    },
+    "EDIT": {
+      "TITLE": "Edit",
+      "BUTTON": "Edit"
+    },
+    "REMOVE": {
+      "TITLE": "Remove",
+      "ALERT": "Are you sure to delete"
+    },
+    "SEARCH": "Search by First/Last name"
+  }
+}

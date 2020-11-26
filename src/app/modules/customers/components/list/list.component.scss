@@ -1,0 +1,25 @@
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding-top: 15px;
+  .item {
+    min-width: 400px;
+    text-decoration: none;
+    display: flex;
+    margin: 15px;
+  }
+}
+
+.search-field {
+  width: 500px;
+  margin: 15px;
+  .search-button {
+    cursor: pointer;
+  }
+}
+
+.add-button {
+  margin: 15px;
+}
